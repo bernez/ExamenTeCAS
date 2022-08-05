@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ExamenTeCAS.Models.Usuario>
+
+@{
+    ViewData["Title"] = "Clientes";
+}
+
+<h1>Listado de Clientes</h1>
+
+<p>
+    <a asp-action="Agregar" class="btn btn-primary">Agregar Cliente</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Correo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Telefono)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Identificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaIngreso)
+            </th>
+
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            
+                @Html.DisplayFor(modelItem => item.Apaterno)
+            
+                @Html.DisplayFor(modelItem => item.Amaterno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Identificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaIngreso)
+            </td>
+            <td>
+                <a class="btn btn-info" asp-controller="Cuentas" asp-action="Cuentas" asp-route-id="@item.Id">Cuentas</a>
+                <a class="btn btn-secondary" asp-action="Detalles" asp-route-id="@item.Id">Detalles</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

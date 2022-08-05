@@ -1,0 +1,52 @@
+﻿@model ExamenTeCAS.Models.Cuenta
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h3>Detalles de la Cuenta</h3>
+
+<h4>Cliente</h4>
+<h5><b>Nombre:</b>  @Model.Usuario.Nombre @Model.Usuario.Apaterno</h5>
+<h5><b>No Identificación:</b>  @Model.Usuario.Identificacion</h5>
+
+<div>
+    <h4>Cuenta</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Numero)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Numero)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Saldo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Saldo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Hora)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Hora)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-warning" asp-action="Editar" asp-route-id="@Model.Id">Editar</a> |
+    <a class="btn btn-secondary" asp-action="Cuentas" asp-route-Id="@Model.Usuario.Id">Volver al Listado</a>
+</div>

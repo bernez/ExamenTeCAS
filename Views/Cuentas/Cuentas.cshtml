@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ExamenTeCAS.Models.Cuenta>
+
+@{
+    ViewData["Title"] = "Cuentas";
+}
+
+<h2>Cuentas del Cliente @ViewBag.Usuario.Nombre @ViewBag.Usuario.Apaterno</h2>
+
+<p>
+    <a class="btn btn-secondary" asp-action="Agregar" asp-route-Id="@ViewBag.Usuario.Id">Agregar Nueva Cuenta</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Saldo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Saldo)
+            </td>
+            <td>
+                <a class="btn btn-secondary" asp-action="Detalles" asp-route-id="@item.Id">Detalles</a>
+                <a class="btn btn-primary" asp-action="Movimientos" asp-route-id="@item.Id">Movimientos</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
